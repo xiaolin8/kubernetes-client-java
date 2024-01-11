@@ -22,6 +22,7 @@ spec:
           metadata:
             type: object
           spec:
+            description: Spec defines the behavior of a ncr cluster
             properties:
               act:
                 type: string
@@ -35,7 +36,42 @@ spec:
                 type: string
               name:
                 type: string
+              preCluster:
+                properties:
+                  clusterName:
+                    type: string
+                  k8SClusterId:
+                    type: string
+                  k8SClusterName:
+                    type: string
+                  namespace:
+                    type: string
+                  nodes:
+                    items:
+                      properties:
+                        ipAddr:
+                          type: string
+                      type: object
+                    type: array
+                  password:
+                    type: string
+                  sentinelMasterName:
+                    type: string
+                  sentinelPassword:
+                    type: string
+                type: object
+              recoverStrategy:
+                properties:
+                  failover:
+                    type: boolean
+                  sharedDown:
+                    type: boolean
+                type: object
             type: object
+        required:
+        - metadata
+        - spec
         type: object
+        x-kubernetes-preserve-unknown-fields: true
     served: true
     storage: true
