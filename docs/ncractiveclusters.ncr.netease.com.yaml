@@ -106,5 +106,10 @@ spec:
                 x-kubernetes-preserve-unknown-fields: true
             type: object
             x-kubernetes-preserve-unknown-fields: true
+        required:
+        - metadata
+        - spec
+        type: object
+        x-kubernetes-preserve-unknown-fields: true
     served: true
     storage: true
