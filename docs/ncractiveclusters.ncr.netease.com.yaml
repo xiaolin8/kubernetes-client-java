@@ -24,10 +24,6 @@ spec:
           spec:
             properties:
               act:
-                enum:
-                - cluster
-                - sentinel
-                - standalone
                 type: string
               activeNodePhase:
                 type: string
@@ -36,10 +32,6 @@ spec:
               logicMaster:
                 type: boolean
               mode:
-                enum:
-                - active
-                - hotBackup
-                - unit
                 type: string
               name:
                 type: string
@@ -114,88 +106,5 @@ spec:
                 x-kubernetes-preserve-unknown-fields: true
             type: object
             x-kubernetes-preserve-unknown-fields: true
-          status:
-            properties:
-              clusterPreNode:
-                items:
-                  properties:
-                    ipAddr:
-                      type: string
-                  required:
-                  - ipAddr
-                  type: object
-                  x-kubernetes-preserve-unknown-fields: true
-                type: array
-              clusterSelfNode:
-                items:
-                  properties:
-                    ipAddr:
-                      type: string
-                  required:
-                  - ipAddr
-                  type: object
-                  x-kubernetes-preserve-unknown-fields: true
-                type: array
-              currentClusterStatus:
-                properties:
-                  logicMaster:
-                    type: boolean
-                  sharedCnt:
-                    type: integer
-                type: object
-                x-kubernetes-preserve-unknown-fields: true
-              nodeRelations:
-                items:
-                  properties:
-                    currAddrIp:
-                      type: string
-                    lag:
-                      format: int64
-                      type: integer
-                    offset:
-                      format: int64
-                      type: integer
-                    preAddrIp:
-                      type: string
-                    relationStatus:
-                      type: string
-                    shared:
-                      type: string
-                  required:
-                  - currAddrIp
-                  - preAddrIp
-                  - relationStatus
-                  type: object
-                  x-kubernetes-preserve-unknown-fields: true
-                type: array
-              relationStatus:
-                type: string
-              sentinelPreNode:
-                items:
-                  properties:
-                    ipAddr:
-                      type: string
-                  required:
-                  - ipAddr
-                  type: object
-                  x-kubernetes-preserve-unknown-fields: true
-                type: array
-              sentinelSelfNode:
-                items:
-                  properties:
-                    ipAddr:
-                      type: string
-                  required:
-                  - ipAddr
-                  type: object
-                  x-kubernetes-preserve-unknown-fields: true
-                type: array
-            type: object
-            x-kubernetes-preserve-unknown-fields: true
-        required:
-        - metadata
-        - spec
-        type: object
-        x-kubernetes-preserve-unknown-fields: true
     served: true
     storage: true
