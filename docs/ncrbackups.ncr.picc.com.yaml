@@ -1,0 +1,72 @@
+apiVersion: apiextensions.k8s.io/v1
+kind: CustomResourceDefinition
+metadata:
+  creationTimestamp: "2024-04-15T13:03:04Z"
+  generation: 1
+  name: ncrbackups.ncr.picc.com
+  resourceVersion: "723092189"
+  selfLink: /apis/apiextensions.k8s.io/v1/customresourcedefinitions/ncrbackups.ncr.picc.com
+  uid: 62fbcc7a-3636-4b56-b48a-5e9e663a865f
+spec:
+  conversion:
+    strategy: None
+  group: ncr.picc.com
+  names:
+    kind: NcrBackup
+    listKind: NcrBackupList
+    plural: ncrbackups
+    singular: ncrbackup
+  scope: Namespaced
+  versions:
+  - name: v1alpha1
+    schema:
+      openAPIV3Schema:
+        properties:
+          apiVersion:
+            description: 'APIVersion defines the versioned schema of this representation
+              of an object. Servers should convert recognized schemas to the latest
+              internal value, and may reject unrecognized values. More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#resources'
+            type: string
+          kind:
+            description: 'Kind is a string value representing the REST resource this
+              object represents. Servers may infer this from the endpoint the client
+              submits requests to. Cannot be updated. In CamelCase. More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#types-kinds'
+            type: string
+          metadata:
+            type: object
+          spec:
+            properties:
+              sourceInstanceName:
+                type: string
+            required:
+            - sourceInstanceName
+            type: object
+            x-kubernetes-preserve-unknown-fields: true
+        required:
+        - metadata
+        - spec
+        type: object
+        x-kubernetes-preserve-unknown-fields: true
+    served: true
+    storage: true
+    subresources:
+      status: {}
+status:
+  acceptedNames:
+    kind: NcrBackup
+    listKind: NcrBackupList
+    plural: ncrbackups
+    singular: ncrbackup
+  conditions:
+  - lastTransitionTime: "2024-04-15T13:03:04Z"
+    message: no conflicts found
+    reason: NoConflicts
+    status: "True"
+    type: NamesAccepted
+  - lastTransitionTime: "2024-04-15T13:03:09Z"
+    message: the initial names have been accepted
+    reason: InitialNamesAccepted
+    status: "True"
+    type: Established
+  storedVersions:
+  - v1alpha1
